@@ -1,9 +1,9 @@
-# Fake ELB Log Generator
+# Fake apache Log Generator
 
 # Based On 
-  [Fake-Apache-Log-Generator](https://github.com/kiritbasu/Fake-Apache-Log-Generator/) library
+  [Fake-ELB-Log-Generator](https://github.com/kekayan/Fake-ELB-Log-Generator) library
 
-This script generates a boatload of fake elb logs very quickly. 
+This script generates a boatload of fake apache2 logs very quickly.
 
 It can write log lines to console, to log files or directly to gzip files.
 
@@ -15,38 +15,37 @@ It utilizes the excellent [Faker](https://github.com/joke2k/faker/) library to g
 
 Generate a single log line to STDOUT
 ```
-$ python elb-fake-log-gen.py  
+$ python3 apache-fake-log-gen.py
 ```
 
 Generate 100 log lines into a .log file
 ```
-$ python elb-fake-log-gen.py -n 100 -o LOG 
+$ python3 -fake-log-gen.py -n 100 -o LOG
 ```
 
 Generate 100 log lines into a .gz file at intervals of 10 seconds
 ```
-$ python elb-fake-log-gen.py -n 100 -o GZ -s 10
+$ python3 apache-fake-log-gen.py -n 100 -o GZ -s 10
 ```
 
 Infinite log file generation (useful for testing File Tail Readers)
 ```
-$ python elb-fake-log-gen.py -n 0 -o LOG 
+$ python3 apache-fake-log-gen.py -n 0 -o LOG
 ```
 
-Prefix the output filename 
+Prefix the output filename
 ```
-$ python elb-fake-log-gen.py -n 100 -o LOG -p WEB1
+$ python3 apache-fake-log-gen.py -n 100 -o LOG -p WEB1
 ```
-
 
 Detailed help
 ```
-$ python elb-fake-log-gen.py -h
-usage: elb-fake-log-gen.py [-h] [--output {LOG,GZ,CONSOLE}]
+$ python3 apache-fake-log-gen.py -h
+usage: apache-fake-log-gen.py [-h] [--output {LOG,GZ,CONSOLE}]
                               [--num NUM_LINES] [--prefix FILE_PREFIX]
                               [--sleep SLEEP]
 
-Fake elb Log Generator
+Fake apache Log Generator
 
 optional arguments:
   -h, --help            show this help message and exit
@@ -62,7 +61,7 @@ optional arguments:
 
 
 ## Requirements
-* Python 
+* Python 3
 * ```pip install -r requirements.txt```
 
 ## License
