@@ -50,7 +50,7 @@ output_type = args.output_type
 faker = Faker()
 
 timestr = time.strftime("%Y%m%d%H%M%S")
-otime = datetime.datetime.now()
+otime = datetime.datetime.now(pytz.timezone('Europe/Paris'))
 
 outFileName = 'http-' + timestr + '.log' if not file_prefix else file_prefix + '_elasticloadbalancing_log_' + timestr + '.log'
 
@@ -81,7 +81,7 @@ while (flag):
         increment = datetime.timedelta(seconds=random.randint(30, 300))
     otime += increment
     ip = faker.ipv4()
-    dt = otime.strftime('%d/%b/%Y:%H:%M:%S')
+    dt = otime.strftime('%d/%b/%Y:%H:%M:%S %z')
     vrb = numpy.random.choice(verb, p=[0.6, 0.1, 0.1, 0.2])
     usr = numpy.random.choice(user, p=[0.6, 0.1, 0.1, 0.2])
     ll = numpy.random.choice(lalu, p=[0.6, 0.1, 0.1, 0.2])
